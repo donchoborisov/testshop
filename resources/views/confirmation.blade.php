@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Payment Confirmation</div>
+                <div class="card-heade"><h3>Payment Confirmation</h3></div>
 
                 <div class="card-body">
 
@@ -15,8 +15,10 @@
 <div class="mt-5">
 
   <div class="mb-3">
-    <label for="name" class="form-label">Payment has been sucessfully made</label>
-   
+     <div class="text-center">
+    <p class="text-capitalize font-weight-bold">Payment has been sucessfully made! <i class="fas fa-check-circle text-success fa-lg"></i><p>
+    <a href="{{url('/allproducts')}}"><button class="btn btn-info text-capitalize text-white">Back to Shopping <i class="fas fa-cart-arrow-down"></i></button</a>        
+     </div>
 
                          
     

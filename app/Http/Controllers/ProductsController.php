@@ -18,7 +18,7 @@ class ProductsController extends Controller
 
        
        
-            $allproducts = Product::all()->sortBy('created_at');
+            $allproducts = Product::orderBy('created_at')->simplePaginate(10);
             return view('allproducts',compact('allproducts'));
        
         
@@ -155,10 +155,6 @@ class ProductsController extends Controller
     }
 
 
-public function show(){
-    
 
-
-}   
 
 }

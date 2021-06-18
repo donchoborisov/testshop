@@ -5,17 +5,21 @@
 
 
 
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+   
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 
 
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-10 ">
                 <div class="panel panel-default">
                     <div class="panel-body">
+                    @if (Session::has('status'))
+                        <div class="alert alert-danger text-center">
+                            <p>{{ Session::get('status') }}</p>
+                        </div>
+                        @endif
 
                         @if (Session::has('success'))
                         <div class="alert alert-primary text-center">
@@ -23,21 +27,21 @@
                         </div>
                         @endif
 
-                        <form role="form" action="{{route('stripe')}}" method="post" class="stripe-payment"
+                        <form onsubmit='disableButton2()' role="form" action="{{route('stripe')}}" method="post" class="stripe-payment"
                             data-cc-on-file="false" data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                             id="stripe-payment">
                             @csrf
 
-                            <div class='form-row row'>
+                            <div class='col-md-6'>
                                 <div class='col-xs-12 form-group required'>
                                     <label class='control-label'>Name on Card</label> <input class='form-control'
                                         size='4' type='text'>
                                 </div>
                             </div>
 
-                            <div class='form-row row'>
+                            <div class='col-md-6'>
                                 <div class='col-xs-12 form-group card required'>
-                                    <label class='control-label'>Card Number</label> <input autocomplete='off'
+                                    <input autocomplete='off'placeholder="card number"
                                         class='form-control card-num' size='20' type='text'>
                                         <input type="hidden" name="guest_email" value="{{$email}}">
                                         <input type="hidden" name="product_name" value="{{$product->name}}">
@@ -47,32 +51,32 @@
                                 </div>
                             </div>
 
-                            <div class='form-row row'>
-                                <div class='col-xs-12 col-md-4 form-group cvc required'>
+                            <div class='col-md-6'>
+                                <div class='col-xs-12  form-group cvc required'>
                                     <label class='control-label'>CVC</label>
                                     <input autocomplete='off' class='form-control card-cvc' placeholder='e.g 595'
                                         size='4' type='text'>
 
                                      
                                 </div>
-                                <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                <div class='col-xs-12 form-group expiration required'>
                                     <label class='control-label'>Expiration Month</label> <input
                                         class='form-control card-expiry-month' placeholder='MM' size='2' type='text'>
                                 </div>
-                                <div class='col-xs-12 col-md-4 form-group expiration required'>
+                                <div class='col-xs-12  form-group expiration required'>
                                     <label class='control-label'>Expiration Year</label> <input
                                         class='form-control card-expiry-year' placeholder='YYYY' size='4' type='text'>
                                 </div>
                             </div>
 
-                            <div class='form-row row'>
+                            <div class='col-md-6'>
                                 <div class='col-md-12 hide error form-group'>
                                     <div class='alert-danger alert'>Fix the errors before you begin.</div>
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <button class="btn btn-success btn-lg btn-block" type="submit">Pay</button>
+                            <div class="col-md-6">
+                                <button id="btn2" class="btn btn-success btn-lg btn-block" type="submit">Pay 50% Deposit</button>
                             </div>
 
                         </form>
@@ -139,7 +143,21 @@
 
     });
 
+   // disable button
+   $('#payform').submit(function(){
+  $('#pay',this)
+  .html("Procesing...")
+  .attr('disabled','disabled');
+  return true;
+});
+
+
 </script>
+
+
+ 
+
+
 
 </html>
 

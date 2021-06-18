@@ -10,15 +10,7 @@
                 <div class="card-body">
 
                
-  <ul class="nav">
-  <li class="nav-item">
-    <a class="nav-link active " aria-current="page" href="{{route('home')}}">Manage Products</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{{route('product.create')}}">Create Product</a>
-  </li>
- 
-</ul>
+
 
                     @if (session('status'))
                         <div class="alert alert-success">

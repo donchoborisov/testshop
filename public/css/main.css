@@ -2,7 +2,7 @@
     
   width: 120px;
   height:100px;
-  object-fit: fill;
+  
 
 }
 
@@ -14,3 +14,4 @@
     object-fit: fill;
   
   }
+  .pagination { justify-content: center!important; }

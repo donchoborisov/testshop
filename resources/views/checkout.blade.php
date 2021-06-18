@@ -66,7 +66,7 @@
                     @endif
               
                
-                <form id="mailform" action="{{route('payment.process')}}" class="mt-5"  method="POST" action="">@csrf
+                <form  action="{{route('payment.process')}}" class="mt-5" onsubmit='disableButton2()'  method="POST" action="">@csrf
                    
                         <div class="col" >
                           <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email">
@@ -76,11 +76,12 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                          <button type="submit" class="btn btn-info mt-3 ">Pay now</button>
+                          <button id="btn" type="submit"  class="btn btn-info mt-3 ">Pay now</button>
                         </div>
                       </div>
                   
-                    
+                      <script>
+ 
                       
                 </form>
               
@@ -100,7 +101,9 @@
 
           
     </div>
-
+   
+  
 
 
 @endsection
+

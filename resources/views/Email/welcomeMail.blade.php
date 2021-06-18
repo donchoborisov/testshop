@@ -1,7 +1,7 @@
 @component('mail::message')
-Payment Confirmation
+Deposit Payment Confirmation
 
-The payment your product: {{$mailInfo['description']}} was successful. 
+ We successfully charge the Deposit payment for your product: {{$mailInfo['description']}}. 
 
 
 

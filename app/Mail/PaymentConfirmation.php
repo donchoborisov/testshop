@@ -11,16 +11,16 @@ class PaymentConfirmation extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+  
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($user)
+    public function __construct()
     {
-        $this->user = $user;
+        
     }
 
     /**
@@ -30,7 +30,6 @@ class PaymentConfirmation extends Mailable
      */
     public function build()
     {
-        return $this->subject('Payment Confirmation')
-                    ->view('email.test');
+        return $this->markdown('Email.secondcharge');
     }
 }

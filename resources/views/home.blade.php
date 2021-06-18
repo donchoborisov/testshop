@@ -79,7 +79,7 @@
       <i class="fas fa-exclamation-triangle fa-2x text-danger "></i>
         <h2>Are you sure ?</h2>
        
-        <input type="text" id="pid" name="pid" value="">
+        <input type="hidden" id="pid" name="pid" value="">
       </div>
       <div class="modal-footer">
         

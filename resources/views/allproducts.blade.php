@@ -15,11 +15,15 @@
 </div>
  
   <div class="card-body">
-    <h5 class="card-title">{{$product->title}}</h5>
+  <h5 class="card-title">{{$product->name}}</h5>
     <p class="card-text"><b>Price:</b>  {{$product->price}}</p>
     <a href="{{url('/single/product/' . $product->id)}}" class="btn btn-primary">View product</a>
   </div>
 </div>
+
+
+
+
 </div>
 
 @endforeach
@@ -27,9 +31,19 @@
 
 </div>
 
-
-
+<div class="pagination">
+<p>{{$allproducts->render()}}</p>
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 
